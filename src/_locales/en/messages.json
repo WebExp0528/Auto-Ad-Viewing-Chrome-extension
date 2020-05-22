@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Auto AD Viewer",
+        "description": "Auto AD Viewer"
+    },
+    "appDescription": {
+        "message": "Auto AD Viewer",
+        "description": "Auto AD Viewer."
+    },
+    "btnTooltip": {
+        "message": "Auto AD Viewer",
+        "description": "Tooltip for the button."
+    }
+}
