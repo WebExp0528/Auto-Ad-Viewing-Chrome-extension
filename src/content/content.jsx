@@ -3,13 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ext from "../utils/ext";
-// import "./content.css";
-
-function onRequest(request) {
-    if (request.action === "change-color") {
-        document.body.style.background = request.data.color;
-    }
-}
+import onRequest from "./messageListener";
 
 ext.runtime.onMessage.addListener(onRequest);
 
