@@ -1,13 +1,29 @@
 import React from "react";
 import Button from "../../components/button/button";
 import sendMessage from "../../services/comunicationManager";
+import { MSG_START, MSG_IS_STARTED, MSG_STOP } from "utils/msgTypes";
 
-function setGreen() {
-    sendMessage("change-color", { color: "green" });
-}
+export default () => {
+    const [isStarted, setStarted] = React.useState(false);
 
-function setRed() {
-    sendMessage("change-color", { color: "red" });
-}
+    React.useEffect(() => {
+        sendMessage(MSG_IS_STARTED).then(res => {
+            console.log("~~~~~~~~~~~~ is_started", res);
+            setStarted(res);
+        });
+    }, []);
 
-export default () => <div></div>;
+    const handleClickStart = () => {
+        sendMessage(isStarted ? MSG_STOP : MSG_START);
+        setStarted(!isStarted);
+    };
+
+    return (
+        <div>
+            <Button
+                label={isStarted ? "Stop" : "Start"}
+                action={handleClickStart}
+            />
+        </div>
+    );
+};
